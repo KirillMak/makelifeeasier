@@ -1,0 +1,17 @@
+#body {background:red;}
+
+.header {
+    padding: 50px;
+}
+
+.fa-fire {
+    color: rgb(238, 70, 20);
+}
+
+.fa-leaf {
+    color: rgb(9, 145, 9);
+}
+
+.fa-clock {
+    color: rgb(252, 229, 23);
+}

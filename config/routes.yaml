@@ -1,9 +1,9 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::indexAction
+index:
+    path: /
+    controller: App\Controller\TodolistController::indexAction
 
 
-#index:
-#    path: /
-#    controller: App\Controller\TodolistController::indexAction
+product_route:
+    path: /product
+    controller: App\Controller\ProductController::index
 
