@@ -4,6 +4,9 @@
     padding: 50px;
 }
 
+th , td {
+    text-align: center;
+}
 .fa-fire {
     color: rgb(238, 70, 20);
 }
@@ -14,4 +17,20 @@
 
 .fa-clock {
     color: rgb(252, 229, 23);
+}
+
+.btn.show, .btn.delete, .btn.edit {
+    background: transparent;
+}
+
+.deadline {
+    background: rgba(252, 4, 4, 0.1);
+}
+
+.danger {
+    background: rgba(252, 153, 4, 0.1);
+}
+
+.okay {
+    background: rgba(116, 252, 4, 0.1);
 }
