@@ -13,7 +13,6 @@ Encore
     // uncomment to define the assets of the project
     .addEntry('todo', './assets/js/todo.js')
     .addStyleEntry('app', './assets/css/index.css')
-
     // uncomment if you use Sass/SCSS files
     // .enableSassLoader()
 

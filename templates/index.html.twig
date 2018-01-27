@@ -1,8 +1,10 @@
 {% extends 'base.html.twig' %}
 {% block body %}
+ <div class = "row">
+          <div class = "col-md-12">
     <table class="table table-hover">
-  <thead>
-    <tr>
+ <thead>
+     <tr>
       <th scope="col">Priority</th>
       <th scope="col">#</th>
       <th scope="col">Title</th>
@@ -13,7 +15,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr class = "deadline">
+    <!--<tr class = "deadline">
       <td><i class="fas fa-fire fa-2x"></i></td>
       <th scope="row">1</th>
       <td>Написать другу</td>
@@ -64,16 +66,47 @@
           <button type="button" class="btn edit"><i class="far fa-edit"></i></button>
           <button type="button" class="btn delete"><i class="far fa-trash-alt"></i></button>
       </td>
-    </tr>
+    </tr>-->
+  {% for task in tasks %}
+    <tr class = "danger">
+      <td><i class="fas fa-clock fa-2x"></td>
+      <th scope="row">{{task.id}}</th>
+      <td>{{task.Title}}</td>
+      <td>{{task.created  | date ("d.m.Y h:m:s")}}</td>
+      <td>{{task.deadline | date ("d.m.Y h:m:s")}}</td>
+      <td>{# endDate and startDate are strings or DateTime objects #}
+          {% set difference = date(task.deadline).diff(date(task.created)) %}
+          {% set leftDays = difference.days %}
+        
+          {% if leftDays == 1 %}
+             {{difference | date ('%d день %H:%I:%S')}}
+          {% else %}
+             {{difference | date ('%d дней %H:%I:%S')}}
+          {% endif %}
 
-    
+          
+      </td>
+       <td>
+          <button type="button" class="btn show"><i class="fas fa-eye"></i></button>
+       </td>
+       <td>
+          <button type="button" class="btn edit"><i class="far fa-edit"></i></button>
+      </td>
+      <td>
+          <button type="button" class="btn delete"><i class="far fa-trash-alt"></i></button>
+      </td>
+    </tr>
     <!--
     <tr>
       <th scope="row">4</th>
      
     </tr>
     -->
-  </tbody>
-</table>
+  {% endfor %}
+
+    </tbody>
+  </table>
+  </div>
+</div>
 {% endblock %}
 

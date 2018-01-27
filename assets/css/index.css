@@ -1,9 +1,35 @@
 #body {background:red;}
+body {
+    height: 100%;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .row {
+    flex: 0 0 auto;
+  }
+  footer {
+    flex: 0 0 auto;
+    text-align: center;
+  }
 
 .header {
     padding: 50px;
 }
 
+a#signin {
+    text-decoration: none;
+    color:#28a745;
+}
+a#signin:hover {
+    color:white;
+}
+button.btn-outline-success:hover {
+   color:white;
+   
+}
 th , td {
     text-align: center;
 }
@@ -23,6 +49,14 @@ th , td {
     background: transparent;
 }
 
+button#signout {
+    background: transparent;
+}
+
+i.fa-sign-out-alt {
+    color: white;
+}
+/*
 .deadline {
     background: rgba(252, 4, 4, 0.1);
 }
@@ -33,4 +67,37 @@ th , td {
 
 .okay {
     background: rgba(116, 252, 4, 0.1);
-}
+}*/
+
+/* форма авторизации */
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+  }
+  .form-signin .checkbox {
+    font-weight: 400;
+  }
+  .form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .form-signin .form-control:focus {
+    z-index: 2;
+  }
+  .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+ 

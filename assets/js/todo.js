@@ -1,3 +1,6 @@
+/**
+ * Удаление задания из todo при клике на кнопку удаления
+ */
 $(document).ready(function(){
     
      $(".delete").click(function(event){
@@ -7,3 +10,26 @@ $(document).ready(function(){
      });
   
   });
+
+$(document).ready(function(){
+    
+     
+        //$(".delete").css("display","block");
+        //$("tbody").children()
+        $("tbody").sortable();
+     
+  
+});
+
+$(document).ready(function(){
+  
+   $(".show").click(function(event){
+      //$(".delete").css("display","block");
+
+      $(this).parent().parent().remove();
+   });
+
+});
+
+
+

@@ -1,9 +1,12 @@
 index:
     path: /
-    controller: App\Controller\TodolistController::indexAction
+    controller: App\Controller\TodolistController::IndexAction
 
 
-product_route:
-    path: /product
-    controller: App\Controller\ProductController::index
+edit_route:
+    path: /edit
+    controller: App\Controller\TodolistController::EditAction
 
+signin_route:
+    path: /signin
+    controller: App\Controller\AuthController::SigninAction

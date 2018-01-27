@@ -6,7 +6,7 @@
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Component\HttpFoundation\Response;
 
-    use App\Entity\Product;
+    use App\Entity\Task;
     use Doctrine\ORM\EntityManagerInterface;
     use Doctrine\Common\Persistence\ManagerRegistry;
     
@@ -17,20 +17,38 @@
        
        public function IndexAction()
        {
-                 $em = $this->getDoctrine()->getManager();
-        
-                $product = new Product();
-                $product->setName('Keyboard');
-                $product->setPrice(19.99);
-               
+                $em = $this->getDoctrine()->getManager();
+                //$tasks = $this -> getDoctrine()
+                //-> getRepository($em, 'Task::class')
+               // ->findAll();
+                $tasks = $this->get('doctrine.orm.entity_manager')->getRepository(Task::class)->findAll();
+               // $product = new Product();
+               // $product->setName('Keyboard');
+               // $product->setPrice(19.99);
+               //var_dump($tasks);
         
                 // tell Doctrine you want to (eventually) save the Product (no queries yet)
-                $em->persist($product);
+               // $em->persist($product);
         
                 // actually executes the queries (i.e. the INSERT query)
-                $em->flush();
+              //  $em->flush();
         
-             return $this->render('index.html.twig');   
+             // $task = new Task;
+             // $task->getId();
+              //$task->getOwnerId();
+             
+            
+             return $this->render('index.html.twig', array( 
+                 'tasks' => $tasks
+             ));   
+       }
+
+       /**
+        * 
+        */
+       public function EditAction()
+       {
+        return $this->render('test.html.twig'); 
        }
    }
 ?>
