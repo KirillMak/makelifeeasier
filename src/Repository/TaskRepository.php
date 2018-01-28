@@ -25,4 +25,14 @@ class TaskRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findByDeleted($is_deleted)
+    {
+        return $this->createQueryBuilder('task')
+            ->where('task.is_deleted = :is_deleted')->setParameter('is_deleted', $is_deleted)
+            ->orderBy('task.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }

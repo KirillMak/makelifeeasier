@@ -10,3 +10,7 @@ edit_route:
 signin_route:
     path: /signin
     controller: App\Controller\AuthController::SigninAction
+
+add_route:
+    path: /add
+    controller: App\Controller\TodolistController::AddAction

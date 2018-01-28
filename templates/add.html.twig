@@ -1,0 +1,14 @@
+   {% include 'header.html.twig' %}
+    <div class = "container">
+     
+             {% block body %}
+
+                {{form_start(form)}}
+                {{form_widget(form)}}
+                {{form_end(form)}}
+             {% endblock %}
+             
+     
+   
+        {% include 'footer.html.twig' %}
+    </div>

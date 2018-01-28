@@ -32,6 +32,12 @@ class Task
      */
     private $title;
 
+   
+    /**
+     * @ORM\Column(type="string",length=100)
+     */
+    private $category;
+
     /**
      * @ORM\Column(type="datetime")
      */
@@ -72,6 +78,10 @@ class Task
     {
         return $this->title;
     }
+    public function getCategory()
+    {
+        return $this->category;
+    }
     public function getCreated()
     {
         return $this->created;
@@ -94,6 +104,11 @@ class Task
         return $this->is_deleted;
     }
 
+    public function getOwner_id()
+    {
+        return $this->owner_id;
+    }
+
     public function setPriority($priority)
     {
         $this->priority = $priority;
@@ -102,6 +117,11 @@ class Task
     public function setTitle($title)
     {
         $this->title = $title;
+    }
+
+    public function setCategory($category)
+    {
+        $this->category = $category;
     }
 
     public function setCreated($created)
@@ -126,6 +146,10 @@ class Task
     public function setIsDeleted($IdDeleted)
     {
        $this->is_deleted = $IdDeleted;
+    }
+    public function setOwner($owner_id)
+    {
+       $this->owner_id = $owner_id;
     }
 
 }
