@@ -1,0 +1,5 @@
+#Redirect http://todolist.dev/ /
+#Redirect /signin http://todolist.dev/signin
+
+#DirectoryIndex todolist.dev/ http://todolist.dev/index.php/
+
