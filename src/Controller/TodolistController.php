@@ -64,18 +64,21 @@
             ->add('deadline',DateTimeType::class,array('attr'=>array('class'=>'form-control')))
             ->add('content',TextareaType::class, array('attr'=>array('class'=>'form-control')))
             ->add('additional',TextType::class, array('attr'=>array('class'=>'form-control')))
+            ->add('category',TextType::class, array('attr'=>array('class'=>'form-control')))
             ->add('priority',ChoiceType::class, array('choices'=>array('Low'=>'1','Medium'=>'2','High'=>'3'),'attr'=>array('class'=>'form-control')))
             ->add('save',SubmitType::class,array('label'=>'Добавить задание','attr'=>array('class'=>'form-control'))) 
             ->getForm();
         $form -> handleRequest($request);
        
         if($form->isSubmitted() && $form->isValid() ){
-           
+            //var_dump($_POST);
+           // var_dump($_SERVER);
            $title = $form['title']->getData();
            $deadline = $form['deadline']->getData();
            $content = $form['content']->getData();
            $additional = $form['additional']->getData();
            $priority = $form['priority']->getData();
+           $category = $form['category']->getData();
 
            $isDeleted = false;
            $owner_id = 1;
@@ -86,14 +89,18 @@
            $task-> setDeadline($deadline);
            $task-> setContent($content);
            $task-> setAdditional($additional);
+           $task-> setCategory($category);
            $task-> setPriority($priority);
            $task-> setCreated($now);
            $task-> setIsDeleted($isDeleted);
-
+          // var_dump($task);
            $em = $this->getDoctrine()->getManager();
 
            $em->persist($task);
+           //var_dump($em);
            $em->flush();
+           //var_dump($_POST);
+           //die ('test');
         }
             
             return $this->render('add.html.twig',array(

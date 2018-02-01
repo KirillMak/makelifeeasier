@@ -92,9 +92,9 @@ DirectoryIndex index.php
 
     #   following RewriteCond (best solution)
 
-    RewriteCond %{ENV:REDIRECT_STATUS} ^$
+    #RewriteCond %{ENV:REDIRECT_STATUS} ^$
 
-    RewriteRule ^index\.php(?:/(.*)|$) %{ENV:BASE}/$1 [R=301,L]
+    #RewriteRule ^index\.php(?:/(.*)|$) %{ENV:BASE}/$1 [R=301,L]
 
 
 
