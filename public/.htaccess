@@ -19,7 +19,7 @@
     RewriteEngine On  
     RewriteBase /
     DirectoryIndex index.php
-    
+
     RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
     RewriteRule ^(.*) - [E=BASE:%1]
     RewriteCond %{ENV:REDIRECT_STATUS} ^$
@@ -30,7 +30,7 @@
     RewriteRule .? - [L]
 
     ## Rewrite all other queries to the front controller.
-    RewriteRule .? %{ENV:BASE}/index.php [L]
+    #RewriteRule .? %{ENV:BASE}/index.php [L]
 
     RewriteCond %{REQUEST_URI} !index.php/
     RewriteRule (.*) /index.php/$1 [L]

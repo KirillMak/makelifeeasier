@@ -49,9 +49,7 @@
              ));   
        }
 
-       /**
-        * 
-        */
+       
        public function EditAction()
        {
         return $this->render('test.html.twig'); 
@@ -70,7 +68,9 @@
             ->add('save',SubmitType::class,array('label'=>'Добавить задание','attr'=>array('class'=>'form-control'))) 
             ->getForm();
         $form -> handleRequest($request);
+       
         if($form->isSubmitted() && $form->isValid() ){
+            var_dump($request);
            $title = $form['title']->getData();
            $deadline = $form['deadline']->getData();
            $content = $form['content']->getData();
