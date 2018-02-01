@@ -70,7 +70,7 @@
         $form -> handleRequest($request);
        
         if($form->isSubmitted() && $form->isValid() ){
-            var_dump($request);
+           
            $title = $form['title']->getData();
            $deadline = $form['deadline']->getData();
            $content = $form['content']->getData();
