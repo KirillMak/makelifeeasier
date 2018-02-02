@@ -4,7 +4,7 @@ index:
 
 
 edit_route:
-    path: /edit
+    path: /edit/{id}
     controller: App\Controller\TodolistController::EditAction
 
 signin_route:
