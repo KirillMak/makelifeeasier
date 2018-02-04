@@ -15,7 +15,7 @@
    class AuthController extends Controller 
    {
        
-       public function SigninAction()
+       public function signinAction()
        {
 
              return $this->render('auth/signin.html.twig');   

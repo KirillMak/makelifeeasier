@@ -1,16 +1,20 @@
 index:
     path: /
-    controller: App\Controller\TodolistController::IndexAction
+    controller: App\Controller\TodolistController::indexAction
 
 
 edit_route:
     path: /edit/{id}
-    controller: App\Controller\TodolistController::EditAction
+    controller: App\Controller\TodolistController::editAction
 
 signin_route:
     path: /signin
-    controller: App\Controller\AuthController::SigninAction
+    controller: App\Controller\AuthController::signinAction
 
 add_route:
     path: /add
-    controller: App\Controller\TodolistController::AddAction
+    controller: App\Controller\TodolistController::addAction
+
+show_route:
+    path: /show/{id}
+    controller: App\Controller\TodolistController::showAction

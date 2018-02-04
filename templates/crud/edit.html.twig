@@ -1,4 +1,4 @@
-   {% include 'header.html.twig' %}
+   {% include 'base/header.html.twig' %}
     <div class = "container">
      
              {% block body %}
@@ -6,9 +6,10 @@
                 {{form_start(form)}}
                 {{form_widget(form)}}
                 {{form_end(form)}}
+                
              {% endblock %}
              
      
    
-        {% include 'footer.html.twig' %}
+        {% include 'base/footer.html.twig' %}
     </div>

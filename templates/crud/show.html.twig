@@ -1,0 +1,32 @@
+{% include 'base/header.html.twig' %}
+    <div class = "container">
+     
+             {% block body %}
+
+                <h2 class = "page-header">{{task.title}}</h2>
+                <hr>
+                <ul class = "list-group">
+                    <li class = "list-group-item">Задание создано: {{task.created | date ("d.m.Y h:m:s")}}</li>
+                    <li class = "list-group-item">Дата дедлайна: {{task.deadline | date ("d.m.Y h:m:s")}}</li>
+                    <li class = "list-group-item">Категория: {{task.category}}</li>
+                    <li class = "list-group-item">Содержание: {{task.content}}</li>
+                    <li class = "list-group-item">Дополнительная информация: {{task.additional}}</li>
+                    <li class = "list-group-item"> Осталось времени: 
+                     {% set difference = date(task.deadline).diff(date(task.created)) %}
+                     {% set leftDays = difference.days %}
+                    
+                     {% if leftDays == 1 %}
+                        {{difference | date ('%d день %H:%I:%S')}}
+                     {% else %}
+                        {{difference | date ('%d дней %H:%I:%S')}}
+                     {% endif %}
+                    </li>
+                </ul>
+
+                <a class = "btn btn-default" href = "/edit/{{task.id}}"> Перейти к редактированию </a>
+             {% endblock %}
+             
+     
+   
+        {% include 'base/footer.html.twig' %}
+    </div>

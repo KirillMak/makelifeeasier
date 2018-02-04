@@ -20,7 +20,7 @@
    class TodolistController extends Controller 
    {
        
-       public function IndexAction()
+       public function indexAction()
        {
                 $em = $this->getDoctrine()->getManager();
                 //$tasks = $this -> getDoctrine()
@@ -44,13 +44,13 @@
               //$task->getOwnerId();
              
             
-             return $this->render('index.html.twig', array( 
+             return $this->render('base/index.html.twig', array( 
                  'tasks' => $tasks
              ));   
        }
 
        
-       public function EditAction($id, Request $request)
+       public function editAction($id, Request $request)
        {
             $task = $this->get('doctrine.orm.entity_manager')->getRepository(Task::class)->find($id);
             //var_dump ($task);
@@ -115,12 +115,12 @@
 
             //return $this->render('test.html.twig'); 
            
-            return $this->render('edit.html.twig', array(
+            return $this->render('crud/edit.html.twig', array(
                 'form'=> $form->createView()
             )); 
        }
 
-       public function AddAction(Request $request )
+       public function addAction(Request $request )
        {
         //var_dump($request);
         $task = new Task;
@@ -168,9 +168,16 @@
            //die ('test');
         }
             
-            return $this->render('add.html.twig',array(
+            return $this->render('crud/add.html.twig',array(
                 'form'=> $form->createView()
             )); 
+       }
+
+       public function showAction($id, Request $request){
+            $task = $this->get('doctrine.orm.entity_manager')->getRepository(Task::class)->find($id);
+
+
+            return $this ->render('crud/show.html.twig',array('task' => $task));
        }
    }
 ?>
