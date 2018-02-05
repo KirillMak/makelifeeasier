@@ -61,7 +61,8 @@ DirectoryIndex index.php
     RewriteRule ^(.*) - [E=BASE:%1]
 
     RewriteCond %{HTTP:X-Requested-With} XMLHttpRequest
-    RewriteRule ^(.*) %{ENV:BASE}/index.php/$1 [L]
+    #RewriteRule ^(.*) %{ENV:BASE}/index.php/$1 [L]
+    RewriteRule ^ - [L]
 
 
 
