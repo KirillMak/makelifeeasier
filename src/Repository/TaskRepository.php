@@ -35,4 +35,14 @@ class TaskRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+
+    public function findById($id)
+    {
+        return $this->createQueryBuilder('task')
+            ->where('task.id = :id')->setParameter('id', $id)
+            ->orderBy('task.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }

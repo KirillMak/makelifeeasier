@@ -68,7 +68,7 @@
       </td>
     </tr>-->
   {% for task in tasks %}
-    <tr class = "danger">
+    <tr class = "danger" id = "{{task.id}}">
       <td><i class="fas fa-clock fa-2x"></td>
       <th scope="row">{{task.id}}</th>
       <td>{{task.Title}}</td>
@@ -93,9 +93,10 @@
           <a href = "/edit/{{task.id}}"><button type="button" class="btn edit"><i class="far fa-edit"></i></button></a>
       </td>
       <td>
-          <button type="button" class="btn delete"> <i class="far fa-trash-alt"></i></button>
+          <button type="button" class="btn delete" data-toggle="modal"> <i class="far fa-trash-alt"></i></button>
       </td>
     </tr>
+     
     <!--
     <tr>
       <th scope="row">4</th>
@@ -108,5 +109,6 @@
   </table>
   </div>
 </div>
+  {% include 'modals/modal_delete.html.twig' %}
 {% endblock %}
 

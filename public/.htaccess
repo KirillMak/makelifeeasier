@@ -41,7 +41,7 @@ DirectoryIndex index.php
     RewriteEngine On
 
 
-
+    
     # Determine the RewriteBase automatically and set it as environment variable.
 
     # If you are using Apache aliases to do mass virtual hosting or installed the
@@ -59,6 +59,9 @@ DirectoryIndex index.php
     RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
 
     RewriteRule ^(.*) - [E=BASE:%1]
+
+    RewriteCond %{HTTP:X-Requested-With} XMLHttpRequest
+    RewriteRule ^(.*) %{ENV:BASE}/index.php/$1 [L]
 
 
 

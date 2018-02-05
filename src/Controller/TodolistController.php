@@ -116,7 +116,7 @@
             //return $this->render('test.html.twig'); 
            
             return $this->render('crud/edit.html.twig', array(
-                'form'=> $form->createView()
+                'form'=> $form->createView(),'task' => $task
             )); 
        }
 

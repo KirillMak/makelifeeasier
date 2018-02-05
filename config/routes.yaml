@@ -18,3 +18,7 @@ add_route:
 show_route:
     path: /show/{id}
     controller: App\Controller\TodolistController::showAction
+
+ajax_route:
+    path: /ajax
+    controller: App\Controller\AjaxController::ajaxAction
