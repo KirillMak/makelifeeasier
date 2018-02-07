@@ -22,3 +22,7 @@ show_route:
 ajax_route:
     path: /ajax
     controller: App\Controller\AjaxController::ajaxAction
+
+report_route:
+    path: /report
+    controller: App\Controller\ReportController::showReportAction

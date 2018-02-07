@@ -69,7 +69,18 @@
     </tr>-->
   {% for task in tasks %}
     <tr class = "danger" id = "{{task.id}}">
-      <td><i class="fas fa-clock fa-2x"></td>
+      <td><!--<i class="fas fa-clock fa-2x">-->
+            
+           {% if task.priority == 1 %}
+              <i class="fas fa-fire fa-2x">
+           {% endif %}
+            {% if task.priority == 2 %}
+              <i class="fas fa-clock fa-2x">
+           {% endif %}
+            {% if task.priority == 3 %}
+              <i class="fas fa-leaf fa-2x">
+           {% endif %}
+      </td>
       <th scope="row">{{task.id}}</th>
       <td>{{task.Title}}</td>
       <td>{{task.created  | date ("d.m.Y h:m:s")}}</td>
