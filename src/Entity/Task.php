@@ -34,7 +34,7 @@ class Task
 
    
     /**
-     * @ORM\Column(type="string",length=100)
+     * @ORM\Column(type="integer",length=5)
      */
     private $category;
 

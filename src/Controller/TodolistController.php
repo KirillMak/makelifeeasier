@@ -6,6 +6,7 @@
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Component\HttpFoundation\Response;
 
+    use App\Entity\Category;
     use App\Entity\Task;
     use Doctrine\ORM\EntityManagerInterface;
     use Doctrine\Common\Persistence\ManagerRegistry;
@@ -26,7 +27,27 @@
                 //$tasks = $this -> getDoctrine()
                 //-> getRepository($em, 'Task::class')
                // ->findAll();
-                $tasks = $this->get('doctrine.orm.entity_manager')->getRepository(Task::class)->findByDeleted(0);
+        //$tasks = $this->get('doctrine.orm.entity_manager')->getRepository(Task::class)->findByDeleted(0);
+                $tasks = $this->get('doctrine.orm.entity_manager')->getRepository(Category::class)->findTasks();
+                $now = new\DateTime('now');
+                /*for ($i = 0; $i < count($tasks/2); $i++){
+                    array_merge($tasks[$i], $tasks[$i+1]);
+                }
+                */
+                //var_dump($tasks[2]);
+               /* echo '<pre>';
+                var_dump($tasks[2]);
+                echo '</pre>';
+                */
+                /*foreach ($tasks[0] as $task){
+                    echo ('<br>');
+                    var_dump($task);
+                    echo ('<br>');
+                }*/
+               /* foreach ($tasks as $task){
+                    var_dump($task);
+                    echo ('<br>');
+                }*/
                // var_dump( $tasks[1]);
                // $product = new Product();
                // $product->setName('Keyboard');
@@ -45,7 +66,7 @@
              
             
              return $this->render('base/index.html.twig', array( 
-                 'tasks' => $tasks
+                 'tasks' => $tasks,'now' => $now
              ));   
        }
 

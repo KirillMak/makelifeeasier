@@ -8,7 +8,7 @@
       <th scope="col">Priority</th>
       <th scope="col">#</th>
       <th scope="col">Title</th>
-      <th scope="col">Date</th>
+      <th scope="col">Category</th>
       <th scope="col">Deadline</th>
       <th scope="col">Remaining time</th>
       <th scope="col" colspan ="3">Edit</th>
@@ -67,7 +67,11 @@
           <button type="button" class="btn delete"><i class="far fa-trash-alt"></i></button>
       </td>
     </tr>-->
+
+  
   {% for task in tasks %}
+    {% set cattitle = task.cat_title %}
+    {% set task = task[0] %}
     <tr class = "danger" id = "{{task.id}}">
       <td><!--<i class="fas fa-clock fa-2x">-->
             
@@ -83,10 +87,14 @@
       </td>
       <th scope="row">{{task.id}}</th>
       <td>{{task.Title}}</td>
-      <td>{{task.created  | date ("d.m.Y h:m:s")}}</td>
+      <td>
+           
+          {{cattitle}}
+          {# {{task.created  | date ("d.m.Y h:m:s")}} #}
+      </td>
       <td>{{task.deadline | date ("d.m.Y h:m:s")}}</td>
       <td>{# endDate and startDate are strings or DateTime objects #}
-          {% set difference = date(task.deadline).diff(date(task.created)) %}
+          {% set difference = date(task.deadline).diff(date(now)) %}
           {% set leftDays = difference.days %}
         
           {% if leftDays == 1 %}
