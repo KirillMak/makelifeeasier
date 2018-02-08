@@ -60,6 +60,10 @@ class Task
      */
     private $is_deleted;
     
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $is_done;
 
     public function getId()
     {
@@ -104,6 +108,10 @@ class Task
         return $this->is_deleted;
     }
 
+    public function getIsDone()
+    {
+        return $this->is_done;
+    } 
     public function getOwner_id()
     {
         return $this->owner_id;
@@ -143,9 +151,13 @@ class Task
        $this->additional = $additional;
     }
 
-    public function setIsDeleted($IdDeleted)
+    public function setIsDeleted($IsDeleted)
     {
-       $this->is_deleted = $IdDeleted;
+       $this->is_deleted = $IsDeleted;
+    }
+    public function setIsDone($IsDone)
+    {
+       $this->is_done = $IsDone;
     }
     public function setOwner($owner_id)
     {
